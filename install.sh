@@ -9,31 +9,31 @@
 
 # Adjust the paths to match your system (do not end the path with /).
 # Path to local (working) projects folder
-local_path="${HOME}/LocalDocs/Projects"
+local_path="${HOME}/notes"
 
 # Path to cloud projects folder (node_modules, etc. are omitted).
 #
 # Note: if you're using iCloud on a system before Sierra, the Documents folder
 # can be found at "${HOME}/Library/Mobile Documents/com~apple~CloudDocs"
-cloud_path="${HOME}/Documents/Projects"
+cloud_path="${HOME}/Library/Mobile Documents/iCloud~md~obsidian/Documents/notes"
 
 # Comma-separated list of files to ignore.
 # Example: "node_modules,*.log" -> ignore all paths containing `node_modules` and any files ending with `*.log`.
 # For more details see: http://www.cis.upenn.edu/~bcpierce/unison/download/releases/stable/unison-manual.html#ignore
-ignore_files="node_modules,bower_components,*.log,.DS_Store"
-
-# If you want, change log destination here (irellevant with --no-logs flag).
-log_file="/var/log/${label}.out.log"
-err_file="/var/log/${label}.err.log"
+ignore_files="node_modules,bower_components,*.log,.DS_Store,.git"
 
 ##########################################################################
 # No need to modify the code below, unless you know what you're doing :D #
 ##########################################################################
 
 # Path to script and launchd config.
-label="com.markogresak.projects.CloudSyncIgnore"
-script_path="/usr/local/bin/${label}.sh"
+label="com.undozen.projects.CloudSyncNotesIgnore"
+script_path="${HOME}/local/bin/${label}.sh"
 plist_path="${HOME}/Library/LaunchAgents/${label}.plist"
+
+# If you want, change log destination here (irellevant with --no-logs flag).
+log_file="/var/log/${label}.out.log"
+err_file="/var/log/${label}.err.log"
 
 # If config already exists, unload it before updating it.
 if [ -f $plist_path ]; then
